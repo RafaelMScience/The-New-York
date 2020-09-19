@@ -1,14 +1,10 @@
 package com.rafaelm.thenewyorktimes.data.api
 
-import com.rafaelm.thenewyorktimes.data.dao.Constansts.Companion.API_KEY
-import com.rafaelm.thenewyorktimes.data.dao.Constansts.Companion.BASE_URL
-import okhttp3.Interceptor
+import com.rafaelm.thenewyorktimes.data.classSaveTemp.Constansts.Companion.BASE_URL
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
-import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
-import java.util.concurrent.TimeUnit
 
 class MovieRetrofit {
 

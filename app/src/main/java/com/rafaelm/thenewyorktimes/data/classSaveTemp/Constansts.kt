@@ -1,4 +1,4 @@
-package com.rafaelm.thenewyorktimes.data.dao
+package com.rafaelm.thenewyorktimes.data.classSaveTemp
 
 class Constansts {
     companion object{
