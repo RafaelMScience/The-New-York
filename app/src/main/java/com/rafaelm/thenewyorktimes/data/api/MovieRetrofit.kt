@@ -1,6 +1,6 @@
 package com.rafaelm.thenewyorktimes.data.api
 
-import com.rafaelm.thenewyorktimes.data.classSaveTemp.Constansts.Companion.BASE_URL
+import com.rafaelm.thenewyorktimes.data.SaveTemp.Constansts.Companion.BASE_URL
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit

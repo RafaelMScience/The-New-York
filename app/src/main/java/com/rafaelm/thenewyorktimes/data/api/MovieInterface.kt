@@ -1,6 +1,6 @@
 package com.rafaelm.thenewyorktimes.data.api
 
-import com.rafaelm.thenewyorktimes.data.classSaveTemp.Constansts.Companion.API_KEY
+import com.rafaelm.thenewyorktimes.data.SaveTemp.Constansts.Companion.API_KEY
 import com.rafaelm.thenewyorktimes.data.model.MovieResponse
 import retrofit2.Call
 import retrofit2.http.GET

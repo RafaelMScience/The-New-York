@@ -11,13 +11,16 @@ data class MovieEntity(
     var movieId: Int,
 
     @ColumnInfo(name = "display_title")
-    var movie_title: String?,
+    var movieTitle: String?,
 
     @ColumnInfo(name = "headline")
-    var MovieHeadline: String?,
+    var movieHeadline: String?,
+
+    @ColumnInfo(name = "date_updated")
+    var movieDateUpdate: String?,
 
     @ColumnInfo(name = "summary_short")
-    var MovieSummaryShort: String?,
+    var movieSummaryShort: String?,
 
     @ColumnInfo(name = "movie_image")
     var movieImage: String?,
