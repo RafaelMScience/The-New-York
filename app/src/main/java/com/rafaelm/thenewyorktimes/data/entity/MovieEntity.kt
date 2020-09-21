@@ -24,4 +24,7 @@ data class MovieEntity(
 
     @ColumnInfo(name = "movie_image")
     var movieImage: String?,
+
+    @ColumnInfo(name = "movie_favorite")
+    var movieFavorite: String?
 )

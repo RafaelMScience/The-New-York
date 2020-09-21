@@ -24,15 +24,29 @@ class MovieRepository(application: Application): CoroutineScope {
 
     fun getMovie() = movieDao?.get()
 
+    fun getMovieExp(movieId: Int) = movieDao?.getMovieExp(movieId)
+
     fun insertMovie(movie: MovieEntity){
         launch {
             insert(movie)
         }
     }
 
+    fun updateMovie(movieFavorite: String){
+        launch {
+            favoriteMovie(movieFavorite)
+        }
+    }
+
     private  suspend fun insert(movie: MovieEntity){
         withContext(Dispatchers.IO){
             movieDao?.insertMovie(movie)
+        }
+    }
+
+    private suspend fun favoriteMovie(movieFavorite: String){
+        withContext(Dispatchers.IO){
+            movieDao?.updateMovieFavorite(movieFavorite)
         }
     }
 }

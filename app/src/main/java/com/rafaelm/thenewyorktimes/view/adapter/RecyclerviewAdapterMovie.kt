@@ -1,13 +1,16 @@
 package com.rafaelm.thenewyorktimes.view.adapter
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.rafaelm.thenewyorktimes.R
+import com.rafaelm.thenewyorktimes.data.SaveTemp.Prefs
 import com.rafaelm.thenewyorktimes.data.entity.MovieEntity
+import com.rafaelm.thenewyorktimes.view.activity.MovieDetails
 import kotlinx.android.synthetic.main.recyclerview_movie.view.*
 
 class RecyclerviewAdapterMovie(
@@ -28,6 +31,8 @@ class RecyclerviewAdapterMovie(
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val itemList = item[position]
 
+
+
         holder.itemView.txt_movie_title.text = itemList.movieTitle.toString()
         holder.itemView.txt_movie_release_date.text = itemList.movieDateUpdate.toString()
         holder.itemView.txt_movie_headline.text = itemList.movieHeadline.toString()
@@ -42,7 +47,15 @@ class RecyclerviewAdapterMovie(
                 .into(img)
         }
 
+        holder.itemView.card_click_movie.setOnClickListener {
 
+            val sharedPrefs = Prefs(applicationContext)
+
+            sharedPrefs.save("movieId", itemList.movieId)
+            val i  = Intent(applicationContext, MovieDetails::class.java)
+            i.flags = Intent.FLAG_ACTIVITY_NEW_TASK;
+            applicationContext.startActivity(i)
+        }
     }
 
     override fun getItemCount(): Int {

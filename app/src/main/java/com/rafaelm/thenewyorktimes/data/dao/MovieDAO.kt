@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
+import androidx.room.Update
 import com.rafaelm.thenewyorktimes.data.entity.MovieEntity
 
 @Dao
@@ -13,4 +14,10 @@ interface MovieDAO {
 
     @Query("SELECT * FROM movie_table order by movie_id DESC")
     fun get(): LiveData<List<MovieEntity>>
+
+    @Query("SELECT * FROM movie_table WHERE movie_id=:movieId")
+    fun getMovieExp(movieId: Int): LiveData<List<MovieEntity>>
+
+    @Update
+    fun updateMovieFavorite(favoriteMovie: String): MovieEntity
 }

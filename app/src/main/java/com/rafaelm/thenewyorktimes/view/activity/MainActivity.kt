@@ -46,7 +46,8 @@ class MainActivity : AppCompatActivity() {
                         movieDateUpdate = result.dateUpdated,
                         movieHeadline = result.headline,
                         movieSummaryShort = result.summaryShort,
-                        movieImage = result.multimedia.src
+                        movieImage = result.multimedia.src,
+                        movieFavorite = "false"
                     )
 
                     repository.insertMovie(movieEntity)
