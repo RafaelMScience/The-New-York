@@ -32,7 +32,7 @@ class MovieRepository(application: Application): CoroutineScope {
         }
     }
 
-    fun updateMovie(movieFavorite: String){
+    fun updateMovie(movieFavorite: MovieEntity){
         launch {
             favoriteMovie(movieFavorite)
         }
@@ -44,7 +44,7 @@ class MovieRepository(application: Application): CoroutineScope {
         }
     }
 
-    private suspend fun favoriteMovie(movieFavorite: String){
+    private suspend fun favoriteMovie(movieFavorite: MovieEntity){
         withContext(Dispatchers.IO){
             movieDao?.updateMovieFavorite(movieFavorite)
         }

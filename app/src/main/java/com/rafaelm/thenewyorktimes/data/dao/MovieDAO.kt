@@ -1,10 +1,7 @@
 package com.rafaelm.thenewyorktimes.data.dao
 
 import androidx.lifecycle.LiveData
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.Query
-import androidx.room.Update
+import androidx.room.*
 import com.rafaelm.thenewyorktimes.data.entity.MovieEntity
 
 @Dao
@@ -18,6 +15,6 @@ interface MovieDAO {
     @Query("SELECT * FROM movie_table WHERE movie_id=:movieId")
     fun getMovieExp(movieId: Int): LiveData<List<MovieEntity>>
 
-    @Update
-    fun updateMovieFavorite(favoriteMovie: String): MovieEntity
+    @Update(onConflict = OnConflictStrategy.REPLACE)
+    fun updateMovieFavorite(favoriteMovie: MovieEntity)
 }

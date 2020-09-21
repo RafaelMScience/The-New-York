@@ -26,5 +26,5 @@ data class MovieEntity(
     var movieImage: String?,
 
     @ColumnInfo(name = "movie_favorite")
-    var movieFavorite: String?
+    var movieFavorite: Boolean
 )

@@ -4,9 +4,11 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import com.bumptech.glide.Glide
 import com.rafaelm.thenewyorktimes.R
 import com.rafaelm.thenewyorktimes.data.SaveTemp.Prefs
+import com.rafaelm.thenewyorktimes.data.entity.MovieEntity
 import com.rafaelm.thenewyorktimes.data.repository.MovieRepository
 import kotlinx.android.synthetic.main.activity_movie_details.*
 
@@ -42,11 +44,16 @@ class MovieDetails : AppCompatActivity() {
                     startActivity(Intent.createChooser(shareIntent,"send to"))
                 }
 
+
                 ic_favorite.setOnClickListener{view->
-                    if(it.movieFavorite.equals("false")) {
-                        repository.updateMovie(movieFavorite = "true")
+                    if(!it.movieFavorite) {
+                        val movieFav = MovieEntity(movieId = it.movieId, movieTitle = it.movieTitle, movieImage = it.movieImage, movieSummaryShort = it.movieSummaryShort, movieHeadline = it.movieHeadline, movieDateUpdate = it.movieDateUpdate, movieFavorite = true)
+                        Toast.makeText(this,"Movie is Favorite", Toast.LENGTH_SHORT).show()
+                        repository.updateMovie(movieFav)
                     }else{
-                        repository.updateMovie(movieFavorite = "false")
+                        val movieFav = MovieEntity(movieId = it.movieId, movieTitle = it.movieTitle, movieImage = it.movieImage, movieSummaryShort = it.movieSummaryShort, movieHeadline = it.movieHeadline, movieDateUpdate = it.movieDateUpdate, movieFavorite = false)
+                        Toast.makeText(this,"Movie is not Favorite", Toast.LENGTH_SHORT).show()
+                        repository.updateMovie(movieFav)
                     }
                 }
             }
